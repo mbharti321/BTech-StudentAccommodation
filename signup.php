@@ -1,3 +1,19 @@
+<?php
+	include("includes/config.php");
+  
+	include("includes/classes/Account.php");
+	include("includes/classes/Constants.php");
+
+	$account = new Account($con);
+
+	include("includes/handlers/register-handler.php");
+
+    function getInputValue($name) {
+		if(isset($_POST[$name])) {
+			echo $_POST[$name];
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,14 +30,14 @@
 <body>
     <div class="container">
         <div class="navbar">
-            <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="logo"></a>
+            <a href="index.php"><img src="assets/images/logo.png" class="logo" alt="logo"></a>
             <nav>
                 <ul id="menuList">
-                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.php">HOME</a></li>
                     <li><a href="">Rooms</a></li>
                     <li><a href="">CheckIn</a></li>
                     <li><a href="">CheckOut</a></li>
-                    <li><a href="login.html">Login | Logout</a></li>
+                    <li><a href="login.php">Login | Logout</a></li>
                 </ul>
             </nav>
             <img src="assets/images/menu.png" class="menu-icon" alt="menu" onclick="togglemenu()">
@@ -33,23 +49,31 @@
         <div class="display-container">
             <div class="jumbotron heading" style="justify-content: space-between;">
                 <h1 style="margin: 0 20px;">Room Services </h1>
-                <h3 style="margin: 0 20px;"><a href="login.html">Log in</a></h3>
+                <h3 style="margin: 0 20px;"><a href="login.php">Log in</a></h3>
             </div>
 
             <div id="content" class="content">
 
-                <form id="signupUserForm" method="POST">
+                <form id="signupUserForm" action="signup.php" method="POST">
                     <h2>Sign up as student</h2>
                     <br>
                     
+                    <?php echo $account->getError(Constants::$NameCharacters); ?>                    
+                    <?php echo $account->getError(Constants::$emailInvalid); ?>
+                    <?php echo $account->getError(Constants::$emailTaken); ?>
+
+                    <?php echo $account->getError(Constants::$passwordsDoNoMatch); ?>
+                    <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
+                    <?php echo $account->getError(Constants::$passwordCharacters); ?>
+
                     <div class="form-group">
                         <label for="fullName">Full name: </label>
-                        <input id="fullName" name="fullName" type="text" placeholder="e.g. Bart" value="" required>
+                        <input id="fullName" name="fullName" type="text" placeholder="e.g. Bart" value="<?php getInputValue('fullName') ?>" required>
                     </div>                  
 
                     <div class="form-group">
                         <label for="email">Email: </label>
-                        <input id="email" name="email" type="email" placeholder="e.g. bart@gmail.com" value="" required>
+                        <input id="email" name="email" type="email" placeholder="e.g. bart@gmail.com" value="<?php getInputValue('email') ?>" required>
                     </div>
 
 
@@ -64,11 +88,10 @@
                     </div>
 
 
-                    <button id="loginBtn" style="margin: 10px;" onclick="return validateUser()" name="loginButton">SIGN
-                        UP</button>
+                    <button id="signupButton" style="margin: 10px;" type="submit"  name="signupButton">SIGN UP</button>
                     <div class="hasAccountText">
                         <span id="hideLogin">Already have an account?
-                            <a href="login.html" style="color: #00a905;" id="loginLink">Login here.</a>
+                            <a href="login.php" style="color: var(--primaryColor);" id="loginLink">Login here.</a>
                         </span>
                     </div>
                 </form>

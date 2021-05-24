@@ -14,15 +14,15 @@
 <body>
     <div class="container">
         <div class="navbar">
-            <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="logo"></a>
+            <a href="index.php"><img src="assets/images/logo.png" class="logo" alt="logo"></a>
             <nav>
                 <ul id="menuList">
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="admin.html">Admin</a></li>
-                    <li><a href="user.html">Student</a></li>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                    <li><a href="user.php">Student</a></li>
                     <li><a href="">CheckIn</a></li>
                     <li><a href="">CheckOut</a></li>
-                    <li><a href="login.html">Login | Logout</a></li>
+                    <li><a href="login.php">Login | Logout</a></li>
                 </ul>
             </nav>
             <img src="assets/images/menu.png" class="menu-icon" alt="menu" onclick="togglemenu()">

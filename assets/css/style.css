@@ -1,13 +1,13 @@
 :root {
     /* --primaryColor: #E31745 #ff0055 #ff5050*/
-    --primaryColor: #00ff40;
+    --primaryColor: #ff0800;
     --blur: 10px;
 }
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode';
 }
 
 a{
@@ -19,7 +19,7 @@ body{
     background-image: url("../images/background.jpg");
     /* backdrop-filter: blur(1px); */
     /* Center and scale the image nicely */
-  background-position: center;
+  /* background-position: center; */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -88,6 +88,9 @@ form{
     margin: 10px;
     border-radius: 10px;
 }
+form h2{
+    text-decoration: solid underline;
+}
 
 .form-group{
     display: flex;
@@ -153,6 +156,19 @@ nav ul li a:hover,
 .content ul li{
     margin: 20px 30px;
     color: #08f242;
+}
+
+.errorMessage {
+    color: #fc0000;
+    font-size: 14px;
+    text-decoration: underline;
+    text-decoration-color: #000;
+    padding: 3px 5px;
+    /* background: #ff000082; */
+    /* border: solid 1px; */
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 5px;
 }
 
 @media only screen and (max-width:1190px) {
