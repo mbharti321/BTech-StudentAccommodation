@@ -58,6 +58,14 @@
 			return "<span class='errorMessage'>$error</span>";
 		}
 
+		public function getBulkError() {
+			$errorStr = "";
+			foreach ($this->errorArray as $error) {
+				$errorStr .= "<span class='errorMessage'>$error</span>";
+			}
+			return $errorStr;
+		}
+
 		private function insertUserDetails($name, $em, $pw) {
 			$encryptedPw = md5($pw);
 
@@ -69,7 +77,6 @@
 
 		
 		private function validateName($name) {
-			echo(strlen($name));
 			if(strlen($name) > 25 || strlen($name) < 5) {
 				array_push($this->errorArray, Constants::$NameCharacters);
 				return;

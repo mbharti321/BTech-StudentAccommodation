@@ -13,3 +13,12 @@
     <img src="assets/images/menu.png" class="menu-icon" alt="menu" onclick="togglemenu()">
 
 </div>
+
+
+<?php echo $account->getError(Constants::$NameCharacters); ?>                    
+<?php echo $account->getError(Constants::$emailInvalid); ?>
+<?php echo $account->getError(Constants::$emailTaken); ?>
+
+<?php echo $account->getError(Constants::$passwordsDoNoMatch); ?>
+<?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
+<?php echo $account->getError(Constants::$passwordCharacters); ?>

@@ -57,14 +57,9 @@
                 <form id="signupUserForm" action="signup.php" method="POST">
                     <h2>Sign up as student</h2>
                     <br>
-                    
-                    <?php echo $account->getError(Constants::$NameCharacters); ?>                    
-                    <?php echo $account->getError(Constants::$emailInvalid); ?>
-                    <?php echo $account->getError(Constants::$emailTaken); ?>
-
-                    <?php echo $account->getError(Constants::$passwordsDoNoMatch); ?>
-                    <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
-                    <?php echo $account->getError(Constants::$passwordCharacters); ?>
+                    <?php
+                        echo $account->getBulkError();
+                    ?>                   
 
                     <div class="form-group">
                         <label for="fullName">Full name: </label>
