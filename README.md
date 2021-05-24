@@ -1,5 +1,5 @@
 # BTech-StudentAccommodation
 
-# Website link
-- [frontEnd-StudentAccommodation](https://mbharti321.github.io/BTech-StudentAccommodation/)
-- [Hosted-StudentAccommodation](https://mbharti321.github.io/BTech-StudentAccommodation/)
+## Website link
+- [frontEnd](https://mbharti321.github.io/BTech-StudentAccommodation/)
+- [Hosted-website](https://mbharti321.github.io/BTech-StudentAccommodation/)
