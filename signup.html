@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup-BTechRooms</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="logo"></a>
+            <nav>
+                <ul id="menuList">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="">Rooms</a></li>
+                    <li><a href="">CheckIn</a></li>
+                    <li><a href="">CheckOut</a></li>
+                    <li><a href="login.html">Login | Logout</a></li>
+                </ul>
+            </nav>
+            <img src="assets/images/menu.png" class="menu-icon" alt="menu" onclick="togglemenu()">
+
+        </div>
+
+
+
+        <div class="display-container">
+            <div class="jumbotron heading" style="justify-content: space-between;">
+                <h1 style="margin: 0 20px;">Room Services </h1>
+                <h3 style="margin: 0 20px;"><a href="login.html">Log in</a></h3>
+            </div>
+
+            <div id="content" class="content">
+
+                <form id="signupUserForm" method="POST">
+                    <h2>Sign up as student</h2>
+                    <br>
+                    
+                    <div class="form-group">
+                        <label for="fullName">First name</label>
+                        <input id="fullName" name="fullName" type="text" placeholder="e.g. Bart" value="" required>
+                    </div>                  
+
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input id="email" name="email" type="email" placeholder="e.g. bart@gmail.com" value="" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="password">Password: </label>
+                        <input id="password" name="password" type="password" placeholder="Your password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password2">Confirm </br>password: </label>
+                        <input id="password2" name="password2" type="password" placeholder="Your password" required>
+                    </div>
+
+
+                    <button id="loginBtn" style="margin: 10px;" onclick="return validateUser()" name="loginButton">SIGN
+                        UP</button>
+                    <div class="hasAccountText">
+                        <span id="hideLogin">Already have an account?
+                            <a href="login.html" style="color: #00a905;" id="loginLink">Login here.</a>
+                        </span>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <script src="assets/js/main.js"></script>
+</body>
+
+</html>
