@@ -1,4 +1,4 @@
 # BTech-StudentAccommodation
 
 # Website link
-    -[StudentAccommodation] (https://github.com/mbharti321/BTech-StudentAccommodation)
+- [frontEnd](https://mbharti321.github.io/BTech-StudentAccommodation/)
