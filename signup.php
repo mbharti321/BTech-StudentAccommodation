@@ -34,9 +34,8 @@
             <nav>
                 <ul id="menuList">
                     <li><a href="index.php">HOME</a></li>
-                    <li><a href="">Rooms</a></li>
-                    <li><a href="">CheckIn</a></li>
-                    <li><a href="">CheckOut</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                    <li><a href="user.php">Student</a></li>
                     <li><a href="login.php">Login | Logout</a></li>
                 </ul>
             </nav>
@@ -59,16 +58,18 @@
                     <br>
                     <?php
                         echo $account->getBulkError();
-                    ?>                   
+                    ?>
 
                     <div class="form-group">
                         <label for="fullName">Full name: </label>
-                        <input id="fullName" name="fullName" type="text" placeholder="e.g. Bart" value="<?php getInputValue('fullName') ?>" required>
-                    </div>                  
+                        <input id="fullName" name="fullName" type="text" placeholder="e.g. Bart"
+                            value="<?php getInputValue('fullName') ?>" required>
+                    </div>
 
                     <div class="form-group">
                         <label for="email">Email: </label>
-                        <input id="email" name="email" type="email" placeholder="e.g. bart@gmail.com" value="<?php getInputValue('email') ?>" required>
+                        <input id="email" name="email" type="email" placeholder="e.g. bart@gmail.com"
+                            value="<?php getInputValue('email') ?>" required>
                     </div>
 
 
@@ -83,7 +84,7 @@
                     </div>
 
 
-                    <button id="signupButton" style="margin: 10px;" type="submit"  name="signupButton">SIGN UP</button>
+                    <button id="signupButton" style="margin: 10px;" type="submit" name="signupButton">SIGN UP</button>
                     <div class="hasAccountText">
                         <span id="hideLogin">Already have an account?
                             <a href="login.php" style="color: var(--primaryColor);" id="loginLink">Login here.</a>

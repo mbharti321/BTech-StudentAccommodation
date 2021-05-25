@@ -10,6 +10,9 @@ class Constants {
 
 	public static $loginUserFailed = "Student's email id or password was incorrect";
 	public static $loginAdminFailed = "Admin's email id or password was incorrect";
-
+	
+	public static $rentNotAlphanumeric = "Monthly charge can only contain numbers";
+	public static $rentNegative = "Monthly charge can't be negative";
+	
 }
 ?>

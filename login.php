@@ -41,9 +41,8 @@
             <nav>
                 <ul id="menuList">
                     <li><a href="index.php">HOME</a></li>
-                    <li><a href="">Rooms</a></li>
-                    <li><a href="">CheckIn</a></li>
-                    <li><a href="">CheckOut</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                    <li><a href="user.php">Student</a></li>
                     <li><a href="login.php">Login | Logout</a></li>
                 </ul>
             </nav>
@@ -59,9 +58,9 @@
                 <h3 style="margin: 0 20px;"><a href="login.php">Login</a></h3>
             </div>
 
-            <div id="content" class="content">
+            <div id="content" class="content" style="flex-direction: row;">
 
-                <form id="loginUserForm" action ="login.php" method="POST">
+                <form id="loginUserForm" action="login.php" method="POST">
                     <h2>Login as student</h2>
                     <br>
                     <?php echo $account->getError(Constants::$loginUserFailed); ?>
@@ -70,19 +69,20 @@
                         // echo $account->getError(Constants::$loginFailed); 
                         ?>
                         <label for="loginUserEmail">User email id:&nbsp;</label>
-                        <input id="loginUserEmail" name="loginUserEmail" type="text" placeholder="e.g. bart@abcd.xyz" value="<?php getInputValue('loginUserEmail') ?>"
-                            required>
+                        <input id="loginUserEmail" name="loginUserEmail" type="text" placeholder="e.g. bart@abcd.xyz"
+                            value="<?php getInputValue('loginUserEmail') ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="loginUserPassword">Password: </label>
-                        <input id="loginUserPassword" name="loginUserPassword" type="password" placeholder="Your password"
-                            required>
+                        <input id="loginUserPassword" name="loginUserPassword" type="password"
+                            placeholder="Your password" required>
                     </div>
 
-                    <button id="loginUserButton" style="margin: 10px;"  type="submit" name="loginUserButton">LOG IN</button>
+                    <button id="loginUserButton" style="margin: 10px;" type="submit" name="loginUserButton">LOG
+                        IN</button>
                     <div class="hasAccountText">
                         <span id="hideLogin">Don't have an account yet?
-                            <a href="signup.php" style="color: var(--primaryColor);" id="signupLink" >Signup here.</a>
+                            <a href="signup.php" style="color: var(--primaryColor);" id="signupLink">Signup here.</a>
                         </span>
                     </div>
                 </form>
@@ -91,25 +91,26 @@
                 <form id="loginAdminForm" method="POST">
                     <h2>Login as Admin</h2>
                     <br>
-                    
+
                     <?php echo $account->getError(Constants::$loginAdminFailed); ?>
                     <div class="form-group">
                         <label for="loginAdminEmail">User email id:&nbsp;</label>
-                        <input id="loginAdminEmail" name="loginAdminEmail" type="text" placeholder="e.g. bart@abcd.xyz" value=""
-                            required>
+                        <input id="loginAdminEmail" name="loginAdminEmail" type="text" placeholder="e.g. bart@abcd.xyz"
+                            value="" required>
                     </div>
                     <div class="form-group">
                         <label for="loginAdminPassword">Password: &nbsp;</label>
-                        <input id="loginAdminPassword" name="loginAdminPassword" type="password" placeholder="Your password"
-                            required>
+                        <input id="loginAdminPassword" name="loginAdminPassword" type="password"
+                            placeholder="Your password" required>
                     </div>
 
-                    <button id="loginAdminButton" style="margin: 10px;"  type="submit" name="loginAdminButton">LOG IN</button>
-                   
+                    <button id="loginAdminButton" style="margin: 10px;" type="submit" name="loginAdminButton">LOG
+                        IN</button>
+
                 </form>
             </div>
 
-        </div>        
+        </div>
         <script src="assets/js/main.js"></script>
 </body>
 

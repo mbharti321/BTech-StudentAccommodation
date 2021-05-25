@@ -1,3 +1,20 @@
+<?php
+include("includes/config.php");
+
+include("includes/classes/Account.php");
+include("includes/classes/Constants.php");
+
+$account = new Account($con);
+
+if(isset($_SESSION['adminLoggedIn'])) {
+  $userLoggedIn = $_SESSION['adminLoggedIn'];
+}
+else {
+  header("Location: login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,11 +35,8 @@
             <nav>
                 <ul id="menuList">
                     <li><a href="index.php">HOME</a></li>
-                    <li><a href="admin.php">Admin</a></li>
-                    <li><a href="user.php">Student</a></li>
-                    <li><a href="">CheckIn</a></li>
-                    <li><a href="">CheckOut</a></li>
-                    <li><a href="login.php">Login | Logout</a></li>
+                    <li><a href="newRoom.php">New Room</a></li>
+                    <li><a href="login.php">Logout</a></li>
                 </ul>
             </nav>
             <img src="assets/images/menu.png" class="menu-icon" alt="menu" onclick="togglemenu()">
@@ -38,16 +52,64 @@
 
             <div id="content" class="content">
 
-                <ul>
-                    <li>Find rooms what you love to live in</li>
-                    <li>Rooms at economic price</li>
-                    <li>Luxury rooms at your fingertips</li>
-                </ul>
+            <?php
+        // `rooms`(`roomId`, `roomType`, `roomLocation`, `monthlyCharge`, 
+        // `roomAllocated`, `paymentStatus`, `roomAdditionTime`)
+        $roomDetails = mysqli_query($con, "SELECT * FROM rooms");
+        if (mysqli_num_rows($roomDetails) == 0) {
+          echo '<span class="emptyRecord"> 
+                  There is no room to be shown...</br>
+                  <a href="newRoom.php">Insert New Room</a>
+                  </span>';
+          return;
+        }
+
+        echo '<table class = "cssTable" >
+                  <tr class= "tableHeader">
+                    <th >RoomId</th>
+                    <th >Type</th>
+                    <th >Location</th>
+                    <th >MonthlyCharge(₹)</th>
+                    <th >Allocated?</th>
+                    <th >PayStatus</th>
+                    <th >Action</th>
+                  </tr>';
+
+                  while ($row = mysqli_fetch_array($roomDetails)) {
+                    echo '<tr  align = "center">';          
+                      echo "<td>" . $row['roomId'] . "</td>";
+                      echo "<td>" . $row['roomType'] . "</td>";
+                      echo "<td>" . $row['roomLocation'] . "</td>";
+                      echo "<td>" . $row['monthlyCharge'] . "</td>";
+                      echo "<td>" . $row['roomAllocated'] . "</td>";
+                      echo "<td>" . $row['paymentStatus'] . "</td>";
+
+                      echo '<td>
+                              <div class="roomAction">
+                                <span>
+                                  <a href="editRoom.php?id=' . $row["roomId"] . '">Edit</a>
+                                </span>
+                                
+                                <span>
+                                  <a href="deleteRoom.php?id=' . $row["roomId"] . '" onclick = "return checkDelete()">Delete</a>
+                                </span>
+                              </div>
+                            </td> ';
+                    echo "</tr>";
+                  }          
+                echo "</table>";
+        mysqli_close($con);
+        ?>
+                <!--=================================
+                          printing rooms -->
+
             </div>
 
         </div>
         <script>
-            
+          function checkDelete() {
+              return confirm('Are you sure you want to delete the perticular row ?');
+          }
         </script>
         <script src="assets/js/main.js"></script>
 </body>

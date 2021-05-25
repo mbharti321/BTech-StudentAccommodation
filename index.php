@@ -1,7 +1,3 @@
-<? php
-    include("includes/config.php");
-    
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +20,6 @@
                     <li><a href="index.php">HOME</a></li>
                     <li><a href="admin.php">Admin</a></li>
                     <li><a href="user.php">Student</a></li>
-                    <li><a href="">CheckIn</a></li>
-                    <li><a href="">CheckOut</a></li>
                     <li><a href="login.php">Login | Logout</a></li>
                 </ul>
             </nav>

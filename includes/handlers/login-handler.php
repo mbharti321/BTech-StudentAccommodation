@@ -23,7 +23,7 @@ if(isset($_POST['loginAdminButton'])) {
 	$result = $account->loginAdmin($adminEmail, $password);
 
 	if($result == true) {
-		$_SESSION['userLoggedIn'] = $adminEmail;
+		$_SESSION['adminLoggedIn'] = $adminEmail;
 		header("Location: admin.php");
 	}
 }
