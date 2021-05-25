@@ -2,7 +2,7 @@
 	include("includes/config.php");
   
     //resetting session 
-    if(isset($_SESSION['userLoggedIn'])) {
+    if(isset($_SESSION['userLoggedIn']) || isset($_SESSION['adminLoggedIn'])) {
         session_destroy();
         session_start();
     }

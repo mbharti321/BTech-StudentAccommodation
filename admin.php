@@ -7,7 +7,7 @@ include("includes/classes/Constants.php");
 $account = new Account($con);
 
 if(isset($_SESSION['adminLoggedIn'])) {
-  $userLoggedIn = $_SESSION['adminLoggedIn'];
+  $adminLoggedIn = $_SESSION['adminLoggedIn'];
 }
 else {
   header("Location: login.php");
@@ -51,8 +51,9 @@ else {
             </div>
 
             <div id="content" class="content">
+                <div style="overflow: scroll;">
 
-            <?php
+                    <?php
         // `rooms`(`roomId`, `roomType`, `roomLocation`, `monthlyCharge`, 
         // `roomAllocated`, `paymentStatus`, `roomAdditionTime`)
         $roomDetails = mysqli_query($con, "SELECT * FROM rooms");
@@ -100,16 +101,16 @@ else {
                 echo "</table>";
         mysqli_close($con);
         ?>
-                <!--=================================
+                    <!--=================================
                           printing rooms -->
-
+                </div>
             </div>
 
         </div>
         <script>
-          function checkDelete() {
-              return confirm('Are you sure you want to delete the perticular row ?');
-          }
+        function checkDelete() {
+            return confirm('Are you sure you want to delete the perticular row ?');
+        }
         </script>
         <script src="assets/js/main.js"></script>
 </body>
